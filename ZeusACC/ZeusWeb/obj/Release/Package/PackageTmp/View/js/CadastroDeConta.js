@@ -58,11 +58,15 @@ function PersistConta(conta) {
         assync: false,
         success: function (result) {
 
-            alert(result);
+            //alert(result);
 
             if (result != null) {
-                $('#novo').modal('hide');
-                $('#divMsgSucesso').html(result).removeClass('hidden').FadeInUp(90000);
+                //$('#divMsgSucesso').html(result).removeClass('hidden');
+                document.getElementById("divMsgSucesso").innerHTML = result;
+                var myButtonClasses = document.getElementById("divMsgSucesso").classList;
+                if (myButtonClasses.contains("hidden")) {
+                    myButtonClasses.remove("hidden");
+                }
             }
 
         }

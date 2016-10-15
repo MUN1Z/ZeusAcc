@@ -147,11 +147,11 @@ namespace ZeusWeb.Code.Helpers
                 sb.Append("<div class='panel panel-default'>");
                 sb.Append("<div class='panel-heading' role='tab' id='headingOneInfo'>");
                 sb.Append("<h4 class='panel-title'>");
-                sb.Append("<a data-toggle='collapse' data-parent='#accordion' href='#collapseOneInfo' aria-expanded='true' aria-controls='collapseOneInfo' style='font-size:12px'><i class='fa fa-edit'></i>&nbsp;Detalhes");
+                sb.Append("<a data-toggle='collapse' data-parent='#accordion' href='#collapseOneInfo' aria-expanded='true' aria-controls='collapseOneInfo' style='font-size:12px; color:#000 '><i class='fa fa-edit'></i>&nbsp;Detalhes");
                 sb.Append("</a>");
                 sb.Append("</h4>");
                 sb.Append("</div>");
-                sb.Append("<div id='collapseOneInfo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingOneInfo' style='height: 0px;'>");
+                sb.Append("<div id='collapseOneInfo' class='panel-collapse collapse' role='tabpanel' aria-labelledby='headingOneInfo' style='height: 0px; color:#000 '>");
                 sb.Append("<div class='panel-body'>");
                 sb.Append(exception);
                 sb.Append("</div>");

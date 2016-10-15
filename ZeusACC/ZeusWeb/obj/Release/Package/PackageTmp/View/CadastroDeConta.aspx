@@ -6,6 +6,9 @@
         <div class="right_col" role="main">
           <div class="">
             <div class="row">
+              <div class="panel-body" style="padding-top: 10px">
+                <h3 class="text-center hidden" id="divMsgSucesso"></h3>
+              </div>
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -81,7 +84,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Grupo de segurança <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="tel" id="txtGrupoSeguranca" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                          <input type="tel" id="txtGrupoSeguranca" placeholder="Digite um número de 1 a 5, 1 para conta normal" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -96,14 +99,11 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                          <button type="reset" class="btn btn-primary">Cancelar</button>
                           <button id="send" type="submit" class="btn btn-success">Cadastrar</button>
                         </div>
                       </div>
 
-                        <div class="panel-body">
-                            <h3 class="text-center" id="divMsgSucesso" CssClass="hidden" runat="server"></h3>
-                        </div>
 
                     </form>
                   </div>
