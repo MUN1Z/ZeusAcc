@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Zeus.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Zeus.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
-warning 6002: The table/view 'def.zeus.account_viplist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'def.acsm_922db708b3f58df.account_viplist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="account_viplist">
     <Key>
       <PropertyRef Name="ACCOUNT_ID" />
@@ -149,10 +149,10 @@ warning 6002: The table/view 'def.zeus.account_viplist' does not have a primary 
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ZeusStoreContainer">
-    <EntitySet Name="accounts" EntityType="Self.accounts" Schema="zeus" store:Type="Tables" />
-    <EntitySet Name="player_deaths" EntityType="Self.player_deaths" Schema="zeus" store:Type="Tables" />
-    <EntitySet Name="players" EntityType="Self.players" Schema="zeus" store:Type="Tables" />
-    <EntitySet Name="account_viplist" EntityType="Self.account_viplist" store:Type="Tables" store:Schema="zeus">
+    <EntitySet Name="accounts" EntityType="Self.accounts" Schema="acsm_922db708b3f58df" store:Type="Tables" />
+    <EntitySet Name="player_deaths" EntityType="Self.player_deaths" Schema="acsm_922db708b3f58df" store:Type="Tables" />
+    <EntitySet Name="players" EntityType="Self.players" Schema="acsm_922db708b3f58df" store:Type="Tables" />
+    <EntitySet Name="account_viplist" EntityType="Self.account_viplist" store:Type="Tables" store:Schema="acsm_922db708b3f58df">
       <DefiningQuery>SELECT
 `account_viplist`.`ACCOUNT_ID`, 
 `account_viplist`.`WORLD_ID`, 

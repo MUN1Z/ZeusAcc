@@ -3486,6 +3486,7 @@
     </Content>
     <Content Include="View\CadastroDeConta.aspx" />
     <Content Include="View\Index.aspx" />
+    <Content Include="View\js\CadastroDeConta.js" />
     <Content Include="View\Site.Master" />
     <Content Include="Assets\Plugins\font-awesome\.bower.json" />
     <Content Include="Assets\Plugins\font-awesome\.gitignore" />
@@ -4256,6 +4257,7 @@
     <Content Include="Code\DataModel\ZeusDataSource.edmx.diagram">
       <DependentUpon>ZeusDataSource.edmx</DependentUpon>
     </Content>
+    <Content Include="View\Handler.ashx" />
     <None Include="Properties\PublishProfiles\ZeusACC.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4304,6 +4306,9 @@
     <Compile Include="Code\Helpers\Helper.cs" />
     <Compile Include="Code\Models\Account.cs" />
     <Compile Include="Code\Models\Player.cs" />
+    <Compile Include="View\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\CadastroDeConta.aspx.cs">
       <DependentUpon>CadastroDeConta.aspx</DependentUpon>

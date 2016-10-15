@@ -14,31 +14,9 @@
     <Property Name="BLOKED" Type="Boolean" Nullable="false" />
     <Property Name="WARNINGS" Type="Int32" Nullable="false" />
     <Property Name="GROUPID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="account_viplist" Relationship="Zeus.account_viplist_ibfk_1" FromRole="accounts" ToRole="account_viplist" />
-    <NavigationProperty Name="players" Relationship="Zeus.players_ibfk_1" FromRole="accounts" ToRole="players" />
+    <NavigationProperty Name="account_viplist" Relationship="Self.account_viplist_ibfk_1" FromRole="accounts" ToRole="account_viplist" />
+    <NavigationProperty Name="players" Relationship="Self.players_ibfk_1" FromRole="accounts" ToRole="players" />
   </EntityType>
-  <EntityContainer Name="ZeusDataSource" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="accounts" EntityType="Self.accounts" />
-    <EntitySet Name="player_deaths" EntityType="Zeus.player_deaths" />
-    <EntitySet Name="players" EntityType="Zeus.players" />
-    <EntitySet Name="account_viplist" EntityType="Zeus.account_viplist" />
-    <AssociationSet Name="account_viplist_ibfk_1" Association="Zeus.account_viplist_ibfk_1">
-      <End Role="accounts" EntitySet="accounts" />
-      <End Role="account_viplist" EntitySet="account_viplist" />
-    </AssociationSet>
-    <AssociationSet Name="players_ibfk_1" Association="Zeus.players_ibfk_1">
-      <End Role="accounts" EntitySet="accounts" />
-      <End Role="players" EntitySet="players" />
-    </AssociationSet>
-    <AssociationSet Name="player_deaths_ibfk_1" Association="Zeus.player_deaths_ibfk_1">
-      <End Role="players" EntitySet="players" />
-      <End Role="player_deaths" EntitySet="player_deaths" />
-    </AssociationSet>
-    <AssociationSet Name="account_viplist_ibfk_2" Association="Zeus.account_viplist_ibfk_2">
-      <End Role="players" EntitySet="players" />
-      <End Role="account_viplist" EntitySet="account_viplist" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="player_deaths">
     <Key>
       <PropertyRef Name="ID" />
@@ -47,14 +25,14 @@
     <Property Name="PLAYER_ID" Type="Int32" Nullable="false" />
     <Property Name="DATE" Type="Decimal" Nullable="false" />
     <Property Name="LEVEL" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="players" Relationship="Zeus.player_deaths_ibfk_1" FromRole="player_deaths" ToRole="players" />
+    <NavigationProperty Name="players" Relationship="Self.player_deaths_ibfk_1" FromRole="player_deaths" ToRole="players" />
   </EntityType>
   <EntityType Name="players">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NAME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="WORDL_ID" Type="Byte" Nullable="false" />
     <Property Name="GROUP_ID" Type="Int32" Nullable="false" />
     <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" />
@@ -78,7 +56,7 @@
     <Property Name="POSX" Type="Int32" Nullable="false" />
     <Property Name="POSY" Type="Int32" Nullable="false" />
     <Property Name="POZ" Type="Int32" Nullable="false" />
-    <Property Name="CONDITIONS" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="CONDITIONS" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="CAP" Type="Int32" Nullable="false" />
     <Property Name="SEX" Type="Int32" Nullable="false" />
     <Property Name="LASTLOGIN" Type="Decimal" Nullable="false" />
@@ -87,7 +65,7 @@
     <Property Name="SKULL" Type="Boolean" Nullable="false" />
     <Property Name="SKULLTIME" Type="Int32" Nullable="false" />
     <Property Name="RANK_ID" Type="Int32" Nullable="false" />
-    <Property Name="GUILDNICK" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GUILDNICK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LASTLOGOUT" Type="Decimal" Nullable="false" />
     <Property Name="BLESSINGS" Type="SByte" Nullable="false" />
     <Property Name="BALANCE" Type="Int64" Nullable="false" />
@@ -103,10 +81,10 @@
     <Property Name="MARRIAGE" Type="Int64" Nullable="false" />
     <Property Name="PROMOTION" Type="Int32" Nullable="false" />
     <Property Name="DELETED" Type="Boolean" Nullable="false" />
-    <Property Name="DESCRIPTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="accounts" Relationship="Zeus.players_ibfk_1" FromRole="players" ToRole="accounts" />
-    <NavigationProperty Name="player_deaths" Relationship="Zeus.player_deaths_ibfk_1" FromRole="players" ToRole="player_deaths" />
-    <NavigationProperty Name="account_viplist" Relationship="Zeus.account_viplist_ibfk_2" FromRole="players" ToRole="account_viplist" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="accounts" Relationship="Self.players_ibfk_1" FromRole="players" ToRole="accounts" />
+    <NavigationProperty Name="player_deaths" Relationship="Self.player_deaths_ibfk_1" FromRole="players" ToRole="player_deaths" />
+    <NavigationProperty Name="account_viplist" Relationship="Self.account_viplist_ibfk_2" FromRole="players" ToRole="account_viplist" />
   </EntityType>
   <EntityType Name="account_viplist">
     <Key>
@@ -117,14 +95,14 @@
     <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" />
     <Property Name="WORLD_ID" Type="Byte" Nullable="false" />
     <Property Name="PLAYER_ID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="accounts" Relationship="Zeus.account_viplist_ibfk_1" FromRole="account_viplist" ToRole="accounts" />
-    <NavigationProperty Name="players" Relationship="Zeus.account_viplist_ibfk_2" FromRole="account_viplist" ToRole="players" />
+    <NavigationProperty Name="accounts" Relationship="Self.account_viplist_ibfk_1" FromRole="account_viplist" ToRole="accounts" />
+    <NavigationProperty Name="players" Relationship="Self.account_viplist_ibfk_2" FromRole="account_viplist" ToRole="players" />
   </EntityType>
   <Association Name="account_viplist_ibfk_1">
-    <End Type="Zeus.accounts" Role="accounts" Multiplicity="1">
+    <End Role="accounts" Type="Self.accounts" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="Zeus.account_viplist" Role="account_viplist" Multiplicity="*" />
+    <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="accounts">
         <PropertyRef Name="ID" />
@@ -135,10 +113,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="players_ibfk_1">
-    <End Type="Zeus.accounts" Role="accounts" Multiplicity="1">
+    <End Role="accounts" Type="Self.accounts" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="Zeus.players" Role="players" Multiplicity="*" />
+    <End Role="players" Type="Self.players" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="accounts">
         <PropertyRef Name="ID" />
@@ -149,10 +127,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="player_deaths_ibfk_1">
-    <End Type="Zeus.players" Role="players" Multiplicity="1">
+    <End Role="players" Type="Self.players" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="Zeus.player_deaths" Role="player_deaths" Multiplicity="*" />
+    <End Role="player_deaths" Type="Self.player_deaths" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="players">
         <PropertyRef Name="ID" />
@@ -163,10 +141,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="account_viplist_ibfk_2">
-    <End Type="Zeus.players" Role="players" Multiplicity="1">
+    <End Role="players" Type="Self.players" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="Zeus.account_viplist" Role="account_viplist" Multiplicity="*" />
+    <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="players">
         <PropertyRef Name="ID" />
@@ -176,4 +154,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="ZeusDataSource" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounts" EntityType="Self.accounts" />
+    <EntitySet Name="player_deaths" EntityType="Self.player_deaths" />
+    <EntitySet Name="players" EntityType="Self.players" />
+    <EntitySet Name="account_viplist" EntityType="Self.account_viplist" />
+    <AssociationSet Name="account_viplist_ibfk_1" Association="Self.account_viplist_ibfk_1">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="account_viplist" EntitySet="account_viplist" />
+    </AssociationSet>
+    <AssociationSet Name="players_ibfk_1" Association="Self.players_ibfk_1">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="players" EntitySet="players" />
+    </AssociationSet>
+    <AssociationSet Name="player_deaths_ibfk_1" Association="Self.player_deaths_ibfk_1">
+      <End Role="players" EntitySet="players" />
+      <End Role="player_deaths" EntitySet="player_deaths" />
+    </AssociationSet>
+    <AssociationSet Name="account_viplist_ibfk_2" Association="Self.account_viplist_ibfk_2">
+      <End Role="players" EntitySet="players" />
+      <End Role="account_viplist" EntitySet="account_viplist" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>
