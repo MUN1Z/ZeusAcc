@@ -53,14 +53,14 @@
                 
                         <li><a><i class="fa fa-users"></i> Contas <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                              <li><a href="CadastroDeConta.aspx">Cadastro de Conta</a></li>
+                              <li><a href="View/CadastroDeConta.aspx">Cadastro de Conta</a></li>
                               <li><a href="#">Vizualizar Contas</a></li>
                             </ul>
                         </li>
                   
-                        <li><a><i class="fa fa-user-secret"></i> Jogador <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-user-secret"></i> Jogadores <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li><a href="#">Cadastro de Jogadores</a></li>
+                                <li><a href="#">Cadastro de Jogador</a></li>
                                 <li><a href="#">Vizualizar Jogadores</a></li>
                             </ul>
                         </li>
@@ -101,7 +101,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../Assets/images/img.jpg" alt="">John Doe
+                    <img src="../Assets/images/img.jpg" alt="">Felipe Muniz
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

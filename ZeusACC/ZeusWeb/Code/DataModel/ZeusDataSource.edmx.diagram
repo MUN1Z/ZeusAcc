@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ee598d4dc4fe4e64872aedc8d2adee74" Name="Diagram1">
-        <EntityTypeShape EntityType="Zeus.accounts" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Zeus.player_deaths" Width="1.5" PointX="5.25" PointY="12.625" />
-        <EntityTypeShape EntityType="Zeus.players" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="Zeus.account_viplist" Width="1.5" PointX="5.25" PointY="9" />
-        <AssociationConnector Association="Zeus.account_viplist_ibfk_1" />
-        <AssociationConnector Association="Zeus.players_ibfk_1" />
-        <AssociationConnector Association="Zeus.player_deaths_ibfk_1" />
-        <AssociationConnector Association="Zeus.account_viplist_ibfk_2" />
+      <Diagram DiagramId="291f0368356844c2a92967b33baf2c1f" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="Zeus.accounts" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zeus.player_deaths" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zeus.players" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zeus.account_viplist" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="Zeus.account_viplist_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Zeus.players_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Zeus.player_deaths_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Zeus.account_viplist_ibfk_2" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

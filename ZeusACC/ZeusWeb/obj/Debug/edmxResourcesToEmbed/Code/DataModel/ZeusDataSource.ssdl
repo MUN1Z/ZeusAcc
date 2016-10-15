@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Zeus.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.zeus.account_viplist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="account_viplist">
+    <Key>
+      <PropertyRef Name="ACCOUNT_ID" />
+      <PropertyRef Name="WORLD_ID" />
+      <PropertyRef Name="PLAYER_ID" />
+    </Key>
+    <Property Name="ACCOUNT_ID" Type="int" Nullable="false" />
+    <Property Name="WORLD_ID" Type="utinyint" Nullable="false" />
+    <Property Name="PLAYER_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="accounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PREMDAYS" Type="int" Nullable="false" />
+    <Property Name="LASTDAY" Type="uint" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="KEY" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="BLOKED" Type="bool" Nullable="false" />
+    <Property Name="WARNINGS" Type="int" Nullable="false" />
+    <Property Name="GROUPID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="player_deaths">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PLAYER_ID" Type="int" Nullable="false" />
+    <Property Name="DATE" Type="ubigint" Nullable="false" />
+    <Property Name="LEVEL" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="players">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="WORDL_ID" Type="utinyint" Nullable="false" />
+    <Property Name="GROUP_ID" Type="int" Nullable="false" />
+    <Property Name="ACCOUNT_ID" Type="int" Nullable="false" />
+    <Property Name="LEVEL" Type="int" Nullable="false" />
+    <Property Name="VOCATION" Type="int" Nullable="false" />
+    <Property Name="HEALTH" Type="int" Nullable="false" />
+    <Property Name="HEALTHMAX" Type="int" Nullable="false" />
+    <Property Name="EXPERIENCE" Type="bigint" Nullable="false" />
+    <Property Name="LOOKBODY" Type="int" Nullable="false" />
+    <Property Name="LOOKFEET" Type="int" Nullable="false" />
+    <Property Name="LOOKHEAD" Type="int" Nullable="false" />
+    <Property Name="LOOKLEGS" Type="int" Nullable="false" />
+    <Property Name="LOOKTYPE" Type="int" Nullable="false" />
+    <Property Name="LOOKADDONS" Type="int" Nullable="false" />
+    <Property Name="MAGLEVEL" Type="int" Nullable="false" />
+    <Property Name="MANA" Type="int" Nullable="false" />
+    <Property Name="MANAMAX" Type="int" Nullable="false" />
+    <Property Name="MANASPENT" Type="int" Nullable="false" />
+    <Property Name="SOUL" Type="uint" Nullable="false" />
+    <Property Name="TOWN_ID" Type="int" Nullable="false" />
+    <Property Name="POSX" Type="int" Nullable="false" />
+    <Property Name="POSY" Type="int" Nullable="false" />
+    <Property Name="POZ" Type="int" Nullable="false" />
+    <Property Name="CONDITIONS" Type="blob" Nullable="false" />
+    <Property Name="CAP" Type="int" Nullable="false" />
+    <Property Name="SEX" Type="int" Nullable="false" />
+    <Property Name="LASTLOGIN" Type="ubigint" Nullable="false" />
+    <Property Name="LASTIP" Type="uint" Nullable="false" />
+    <Property Name="SAVE" Type="bool" Nullable="false" />
+    <Property Name="SKULL" Type="bool" Nullable="false" />
+    <Property Name="SKULLTIME" Type="int" Nullable="false" />
+    <Property Name="RANK_ID" Type="int" Nullable="false" />
+    <Property Name="GUILDNICK" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LASTLOGOUT" Type="ubigint" Nullable="false" />
+    <Property Name="BLESSINGS" Type="tinyint" Nullable="false" />
+    <Property Name="BALANCE" Type="bigint" Nullable="false" />
+    <Property Name="STAMINA" Type="bigint" Nullable="false" />
+    <Property Name="DIRECTION" Type="int" Nullable="false" />
+    <Property Name="LOSS_EXPERIENCE" Type="int" Nullable="false" />
+    <Property Name="LOSS_MANA" Type="int" Nullable="false" />
+    <Property Name="LOSS_SKILLS" Type="int" Nullable="false" />
+    <Property Name="LOSS_CONTAINERS" Type="int" Nullable="false" />
+    <Property Name="LOSS_ITEMS" Type="int" Nullable="false" />
+    <Property Name="PREMEND" Type="int" Nullable="false" />
+    <Property Name="ONLINE" Type="bool" Nullable="false" />
+    <Property Name="MARRIAGE" Type="uint" Nullable="false" />
+    <Property Name="PROMOTION" Type="int" Nullable="false" />
+    <Property Name="DELETED" Type="bool" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="account_viplist_ibfk_1">
+    <End Role="accounts" Type="Self.accounts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account_viplist">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="account_viplist_ibfk_2">
+    <End Role="players" Type="Self.players" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="players">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account_viplist">
+        <PropertyRef Name="PLAYER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="player_deaths_ibfk_1">
+    <End Role="players" Type="Self.players" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="player_deaths" Type="Self.player_deaths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="players">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="player_deaths">
+        <PropertyRef Name="PLAYER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="players_ibfk_1">
+    <End Role="accounts" Type="Self.accounts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="players" Type="Self.players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="players">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ZeusStoreContainer">
+    <EntitySet Name="accounts" EntityType="Self.accounts" Schema="zeus" store:Type="Tables" />
+    <EntitySet Name="player_deaths" EntityType="Self.player_deaths" Schema="zeus" store:Type="Tables" />
+    <EntitySet Name="players" EntityType="Self.players" Schema="zeus" store:Type="Tables" />
+    <EntitySet Name="account_viplist" EntityType="Self.account_viplist" store:Type="Tables" store:Schema="zeus">
+      <DefiningQuery>SELECT
+`account_viplist`.`ACCOUNT_ID`, 
+`account_viplist`.`WORLD_ID`, 
+`account_viplist`.`PLAYER_ID`
+FROM `account_viplist` AS `account_viplist`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="account_viplist_ibfk_1" Association="Self.account_viplist_ibfk_1">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="account_viplist" EntitySet="account_viplist" />
+    </AssociationSet>
+    <AssociationSet Name="account_viplist_ibfk_2" Association="Self.account_viplist_ibfk_2">
+      <End Role="players" EntitySet="players" />
+      <End Role="account_viplist" EntitySet="account_viplist" />
+    </AssociationSet>
+    <AssociationSet Name="player_deaths_ibfk_1" Association="Self.player_deaths_ibfk_1">
+      <End Role="players" EntitySet="players" />
+      <End Role="player_deaths" EntitySet="player_deaths" />
+    </AssociationSet>
+    <AssociationSet Name="players_ibfk_1" Association="Self.players_ibfk_1">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="players" EntitySet="players" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -25,7 +25,7 @@
           <div class="left_col scroll-view">
 
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.aspx" class="site_title"><i class="fa fa-paw"></i> <span>Pexinxando!</span></a>
+              <a href="View/index.aspx" class="site_title"><i class="fa fa-paw"></i> <span>ZeusACC!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -51,17 +51,17 @@
                     <ul class="nav side-menu" style="">
                         <li><a href="#"><i class="fa fa-home"></i> Principal</a></li>
                 
-                        <li><a><i class="fa fa-empire"></i> Empresas <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-users"></i> Contas <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                              <li><a href="CadastroDeEmpresa.aspx">Cadastro de Empresa</a></li>
-                              <li><a href="#">Vizualizar Empresas</a></li>
+                              <li><a href="View/CadastroDeConta.aspx">Cadastro de Conta</a></li>
+                              <li><a href="#">Vizualizar Contas</a></li>
                             </ul>
                         </li>
                   
-                        <li><a><i class="fa fa-tags"></i> Produtos <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-user-secret"></i> Jogadores <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li><a href="@">Cadastro de Produtos</a></li>
-                                <li><a href="#">Vizualizar Produtos</a></li>
+                                <li><a href="#">Cadastro de Jogador</a></li>
+                                <li><a href="#">Vizualizar Jogadores</a></li>
                             </ul>
                         </li>
 

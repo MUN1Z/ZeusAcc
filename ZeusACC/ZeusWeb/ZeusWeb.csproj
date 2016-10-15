@@ -4270,6 +4270,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Controllers\AccountController.cs" />
+    <Compile Include="Code\DAL\AccountDAL.cs" />
+    <Compile Include="Code\DAL\TransacaoDAL.cs" />
     <Compile Include="Code\DataModel\accounts.cs">
       <DependentUpon>ZeusDataSource.tt</DependentUpon>
     </Compile>
@@ -4297,6 +4300,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ZeusDataSource.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Code\Exceptions\OperacaoException.cs" />
+    <Compile Include="Code\Helpers\Helper.cs" />
+    <Compile Include="Code\Models\Account.cs" />
+    <Compile Include="Code\Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\CadastroDeConta.aspx.cs">
       <DependentUpon>CadastroDeConta.aspx</DependentUpon>

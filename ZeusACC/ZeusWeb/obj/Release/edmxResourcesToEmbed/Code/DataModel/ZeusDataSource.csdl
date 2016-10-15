@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Zeus" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="accounts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PREMDAYS" Type="Int32" Nullable="false" />
+    <Property Name="LASTDAY" Type="Int64" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KEY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BLOKED" Type="Boolean" Nullable="false" />
+    <Property Name="WARNINGS" Type="Int32" Nullable="false" />
+    <Property Name="GROUPID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="account_viplist" Relationship="Self.account_viplist_ibfk_1" FromRole="accounts" ToRole="account_viplist" />
+    <NavigationProperty Name="players" Relationship="Self.players_ibfk_1" FromRole="accounts" ToRole="players" />
+  </EntityType>
+  <EntityType Name="player_deaths">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLAYER_ID" Type="Int32" Nullable="false" />
+    <Property Name="DATE" Type="Decimal" Nullable="false" />
+    <Property Name="LEVEL" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="players" Relationship="Self.player_deaths_ibfk_1" FromRole="player_deaths" ToRole="players" />
+  </EntityType>
+  <EntityType Name="players">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORDL_ID" Type="Byte" Nullable="false" />
+    <Property Name="GROUP_ID" Type="Int32" Nullable="false" />
+    <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" />
+    <Property Name="LEVEL" Type="Int32" Nullable="false" />
+    <Property Name="VOCATION" Type="Int32" Nullable="false" />
+    <Property Name="HEALTH" Type="Int32" Nullable="false" />
+    <Property Name="HEALTHMAX" Type="Int32" Nullable="false" />
+    <Property Name="EXPERIENCE" Type="Int64" Nullable="false" />
+    <Property Name="LOOKBODY" Type="Int32" Nullable="false" />
+    <Property Name="LOOKFEET" Type="Int32" Nullable="false" />
+    <Property Name="LOOKHEAD" Type="Int32" Nullable="false" />
+    <Property Name="LOOKLEGS" Type="Int32" Nullable="false" />
+    <Property Name="LOOKTYPE" Type="Int32" Nullable="false" />
+    <Property Name="LOOKADDONS" Type="Int32" Nullable="false" />
+    <Property Name="MAGLEVEL" Type="Int32" Nullable="false" />
+    <Property Name="MANA" Type="Int32" Nullable="false" />
+    <Property Name="MANAMAX" Type="Int32" Nullable="false" />
+    <Property Name="MANASPENT" Type="Int32" Nullable="false" />
+    <Property Name="SOUL" Type="Int64" Nullable="false" />
+    <Property Name="TOWN_ID" Type="Int32" Nullable="false" />
+    <Property Name="POSX" Type="Int32" Nullable="false" />
+    <Property Name="POSY" Type="Int32" Nullable="false" />
+    <Property Name="POZ" Type="Int32" Nullable="false" />
+    <Property Name="CONDITIONS" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="CAP" Type="Int32" Nullable="false" />
+    <Property Name="SEX" Type="Int32" Nullable="false" />
+    <Property Name="LASTLOGIN" Type="Decimal" Nullable="false" />
+    <Property Name="LASTIP" Type="Int64" Nullable="false" />
+    <Property Name="SAVE" Type="Boolean" Nullable="false" />
+    <Property Name="SKULL" Type="Boolean" Nullable="false" />
+    <Property Name="SKULLTIME" Type="Int32" Nullable="false" />
+    <Property Name="RANK_ID" Type="Int32" Nullable="false" />
+    <Property Name="GUILDNICK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LASTLOGOUT" Type="Decimal" Nullable="false" />
+    <Property Name="BLESSINGS" Type="SByte" Nullable="false" />
+    <Property Name="BALANCE" Type="Int64" Nullable="false" />
+    <Property Name="STAMINA" Type="Int64" Nullable="false" />
+    <Property Name="DIRECTION" Type="Int32" Nullable="false" />
+    <Property Name="LOSS_EXPERIENCE" Type="Int32" Nullable="false" />
+    <Property Name="LOSS_MANA" Type="Int32" Nullable="false" />
+    <Property Name="LOSS_SKILLS" Type="Int32" Nullable="false" />
+    <Property Name="LOSS_CONTAINERS" Type="Int32" Nullable="false" />
+    <Property Name="LOSS_ITEMS" Type="Int32" Nullable="false" />
+    <Property Name="PREMEND" Type="Int32" Nullable="false" />
+    <Property Name="ONLINE" Type="Boolean" Nullable="false" />
+    <Property Name="MARRIAGE" Type="Int64" Nullable="false" />
+    <Property Name="PROMOTION" Type="Int32" Nullable="false" />
+    <Property Name="DELETED" Type="Boolean" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="accounts" Relationship="Self.players_ibfk_1" FromRole="players" ToRole="accounts" />
+    <NavigationProperty Name="player_deaths" Relationship="Self.player_deaths_ibfk_1" FromRole="players" ToRole="player_deaths" />
+    <NavigationProperty Name="account_viplist" Relationship="Self.account_viplist_ibfk_2" FromRole="players" ToRole="account_viplist" />
+  </EntityType>
+  <EntityType Name="account_viplist">
+    <Key>
+      <PropertyRef Name="ACCOUNT_ID" />
+      <PropertyRef Name="WORLD_ID" />
+      <PropertyRef Name="PLAYER_ID" />
+    </Key>
+    <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" />
+    <Property Name="WORLD_ID" Type="Byte" Nullable="false" />
+    <Property Name="PLAYER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="accounts" Relationship="Self.account_viplist_ibfk_1" FromRole="account_viplist" ToRole="accounts" />
+    <NavigationProperty Name="players" Relationship="Self.account_viplist_ibfk_2" FromRole="account_viplist" ToRole="players" />
+  </EntityType>
+  <Association Name="account_viplist_ibfk_1">
+    <End Role="accounts" Type="Self.accounts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account_viplist">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="players_ibfk_1">
+    <End Role="accounts" Type="Self.accounts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="players" Type="Self.players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="players">
+        <PropertyRef Name="ACCOUNT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="player_deaths_ibfk_1">
+    <End Role="players" Type="Self.players" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="player_deaths" Type="Self.player_deaths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="players">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="player_deaths">
+        <PropertyRef Name="PLAYER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="account_viplist_ibfk_2">
+    <End Role="players" Type="Self.players" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="players">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account_viplist">
+        <PropertyRef Name="PLAYER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ZeusDataSource" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounts" EntityType="Self.accounts" />
+    <EntitySet Name="player_deaths" EntityType="Self.player_deaths" />
+    <EntitySet Name="players" EntityType="Self.players" />
+    <EntitySet Name="account_viplist" EntityType="Self.account_viplist" />
+    <AssociationSet Name="account_viplist_ibfk_1" Association="Self.account_viplist_ibfk_1">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="account_viplist" EntitySet="account_viplist" />
+    </AssociationSet>
+    <AssociationSet Name="players_ibfk_1" Association="Self.players_ibfk_1">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="players" EntitySet="players" />
+    </AssociationSet>
+    <AssociationSet Name="player_deaths_ibfk_1" Association="Self.player_deaths_ibfk_1">
+      <End Role="players" EntitySet="players" />
+      <End Role="player_deaths" EntitySet="player_deaths" />
+    </AssociationSet>
+    <AssociationSet Name="account_viplist_ibfk_2" Association="Self.account_viplist_ibfk_2">
+      <End Role="players" EntitySet="players" />
+      <End Role="account_viplist" EntitySet="account_viplist" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

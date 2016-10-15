@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZeusStoreContainer" CdmEntityContainer="ZeusDataSource">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="Zeus.accounts">
+        <MappingFragment StoreEntitySet="accounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PREMDAYS" ColumnName="PREMDAYS" />
+          <ScalarProperty Name="LASTDAY" ColumnName="LASTDAY" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="KEY" ColumnName="KEY" />
+          <ScalarProperty Name="BLOKED" ColumnName="BLOKED" />
+          <ScalarProperty Name="WARNINGS" ColumnName="WARNINGS" />
+          <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="player_deaths">
+      <EntityTypeMapping TypeName="Zeus.player_deaths">
+        <MappingFragment StoreEntitySet="player_deaths">
+          <ScalarProperty Name="LEVEL" ColumnName="LEVEL" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="PLAYER_ID" ColumnName="PLAYER_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="players">
+      <EntityTypeMapping TypeName="Zeus.players">
+        <MappingFragment StoreEntitySet="players">
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+          <ScalarProperty Name="PROMOTION" ColumnName="PROMOTION" />
+          <ScalarProperty Name="MARRIAGE" ColumnName="MARRIAGE" />
+          <ScalarProperty Name="ONLINE" ColumnName="ONLINE" />
+          <ScalarProperty Name="PREMEND" ColumnName="PREMEND" />
+          <ScalarProperty Name="LOSS_ITEMS" ColumnName="LOSS_ITEMS" />
+          <ScalarProperty Name="LOSS_CONTAINERS" ColumnName="LOSS_CONTAINERS" />
+          <ScalarProperty Name="LOSS_SKILLS" ColumnName="LOSS_SKILLS" />
+          <ScalarProperty Name="LOSS_MANA" ColumnName="LOSS_MANA" />
+          <ScalarProperty Name="LOSS_EXPERIENCE" ColumnName="LOSS_EXPERIENCE" />
+          <ScalarProperty Name="DIRECTION" ColumnName="DIRECTION" />
+          <ScalarProperty Name="STAMINA" ColumnName="STAMINA" />
+          <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+          <ScalarProperty Name="BLESSINGS" ColumnName="BLESSINGS" />
+          <ScalarProperty Name="LASTLOGOUT" ColumnName="LASTLOGOUT" />
+          <ScalarProperty Name="GUILDNICK" ColumnName="GUILDNICK" />
+          <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+          <ScalarProperty Name="SKULLTIME" ColumnName="SKULLTIME" />
+          <ScalarProperty Name="SKULL" ColumnName="SKULL" />
+          <ScalarProperty Name="SAVE" ColumnName="SAVE" />
+          <ScalarProperty Name="LASTIP" ColumnName="LASTIP" />
+          <ScalarProperty Name="LASTLOGIN" ColumnName="LASTLOGIN" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="CAP" ColumnName="CAP" />
+          <ScalarProperty Name="CONDITIONS" ColumnName="CONDITIONS" />
+          <ScalarProperty Name="POZ" ColumnName="POZ" />
+          <ScalarProperty Name="POSY" ColumnName="POSY" />
+          <ScalarProperty Name="POSX" ColumnName="POSX" />
+          <ScalarProperty Name="TOWN_ID" ColumnName="TOWN_ID" />
+          <ScalarProperty Name="SOUL" ColumnName="SOUL" />
+          <ScalarProperty Name="MANASPENT" ColumnName="MANASPENT" />
+          <ScalarProperty Name="MANAMAX" ColumnName="MANAMAX" />
+          <ScalarProperty Name="MANA" ColumnName="MANA" />
+          <ScalarProperty Name="MAGLEVEL" ColumnName="MAGLEVEL" />
+          <ScalarProperty Name="LOOKADDONS" ColumnName="LOOKADDONS" />
+          <ScalarProperty Name="LOOKTYPE" ColumnName="LOOKTYPE" />
+          <ScalarProperty Name="LOOKLEGS" ColumnName="LOOKLEGS" />
+          <ScalarProperty Name="LOOKHEAD" ColumnName="LOOKHEAD" />
+          <ScalarProperty Name="LOOKFEET" ColumnName="LOOKFEET" />
+          <ScalarProperty Name="LOOKBODY" ColumnName="LOOKBODY" />
+          <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
+          <ScalarProperty Name="HEALTHMAX" ColumnName="HEALTHMAX" />
+          <ScalarProperty Name="HEALTH" ColumnName="HEALTH" />
+          <ScalarProperty Name="VOCATION" ColumnName="VOCATION" />
+          <ScalarProperty Name="LEVEL" ColumnName="LEVEL" />
+          <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+          <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+          <ScalarProperty Name="WORDL_ID" ColumnName="WORDL_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="account_viplist">
+      <EntityTypeMapping TypeName="Zeus.account_viplist">
+        <MappingFragment StoreEntitySet="account_viplist">
+          <ScalarProperty Name="PLAYER_ID" ColumnName="PLAYER_ID" />
+          <ScalarProperty Name="WORLD_ID" ColumnName="WORLD_ID" />
+          <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
