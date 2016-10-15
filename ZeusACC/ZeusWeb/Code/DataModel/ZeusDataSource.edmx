@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Zeus.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.zeus.account_viplist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="account_viplist">
+          <Key>
+            <PropertyRef Name="ACCOUNT_ID" />
+            <PropertyRef Name="WORLD_ID" />
+            <PropertyRef Name="PLAYER_ID" />
+          </Key>
+          <Property Name="ACCOUNT_ID" Type="int" Nullable="false" />
+          <Property Name="WORLD_ID" Type="utinyint" Nullable="false" />
+          <Property Name="PLAYER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PREMDAYS" Type="int" Nullable="false" />
+          <Property Name="LASTDAY" Type="uint" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="KEY" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BLOKED" Type="bool" Nullable="false" />
+          <Property Name="WARNINGS" Type="int" Nullable="false" />
+          <Property Name="GROUPID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="player_deaths">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLAYER_ID" Type="int" Nullable="false" />
+          <Property Name="DATE" Type="ubigint" Nullable="false" />
+          <Property Name="LEVEL" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="players">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="WORDL_ID" Type="utinyint" Nullable="false" />
+          <Property Name="GROUP_ID" Type="int" Nullable="false" />
+          <Property Name="ACCOUNT_ID" Type="int" Nullable="false" />
+          <Property Name="LEVEL" Type="int" Nullable="false" />
+          <Property Name="VOCATION" Type="int" Nullable="false" />
+          <Property Name="HEALTH" Type="int" Nullable="false" />
+          <Property Name="HEALTHMAX" Type="int" Nullable="false" />
+          <Property Name="EXPERIENCE" Type="bigint" Nullable="false" />
+          <Property Name="LOOKBODY" Type="int" Nullable="false" />
+          <Property Name="LOOKFEET" Type="int" Nullable="false" />
+          <Property Name="LOOKHEAD" Type="int" Nullable="false" />
+          <Property Name="LOOKLEGS" Type="int" Nullable="false" />
+          <Property Name="LOOKTYPE" Type="int" Nullable="false" />
+          <Property Name="LOOKADDONS" Type="int" Nullable="false" />
+          <Property Name="MAGLEVEL" Type="int" Nullable="false" />
+          <Property Name="MANA" Type="int" Nullable="false" />
+          <Property Name="MANAMAX" Type="int" Nullable="false" />
+          <Property Name="MANASPENT" Type="int" Nullable="false" />
+          <Property Name="SOUL" Type="uint" Nullable="false" />
+          <Property Name="TOWN_ID" Type="int" Nullable="false" />
+          <Property Name="POSX" Type="int" Nullable="false" />
+          <Property Name="POSY" Type="int" Nullable="false" />
+          <Property Name="POZ" Type="int" Nullable="false" />
+          <Property Name="CONDITIONS" Type="blob" Nullable="false" />
+          <Property Name="CAP" Type="int" Nullable="false" />
+          <Property Name="SEX" Type="int" Nullable="false" />
+          <Property Name="LASTLOGIN" Type="ubigint" Nullable="false" />
+          <Property Name="LASTIP" Type="uint" Nullable="false" />
+          <Property Name="SAVE" Type="bool" Nullable="false" />
+          <Property Name="SKULL" Type="bool" Nullable="false" />
+          <Property Name="SKULLTIME" Type="int" Nullable="false" />
+          <Property Name="RANK_ID" Type="int" Nullable="false" />
+          <Property Name="GUILDNICK" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="LASTLOGOUT" Type="ubigint" Nullable="false" />
+          <Property Name="BLESSINGS" Type="tinyint" Nullable="false" />
+          <Property Name="BALANCE" Type="bigint" Nullable="false" />
+          <Property Name="STAMINA" Type="bigint" Nullable="false" />
+          <Property Name="DIRECTION" Type="int" Nullable="false" />
+          <Property Name="LOSS_EXPERIENCE" Type="int" Nullable="false" />
+          <Property Name="LOSS_MANA" Type="int" Nullable="false" />
+          <Property Name="LOSS_SKILLS" Type="int" Nullable="false" />
+          <Property Name="LOSS_CONTAINERS" Type="int" Nullable="false" />
+          <Property Name="LOSS_ITEMS" Type="int" Nullable="false" />
+          <Property Name="PREMEND" Type="int" Nullable="false" />
+          <Property Name="ONLINE" Type="bool" Nullable="false" />
+          <Property Name="MARRIAGE" Type="uint" Nullable="false" />
+          <Property Name="PROMOTION" Type="int" Nullable="false" />
+          <Property Name="DELETED" Type="bool" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="account_viplist_ibfk_1">
+          <End Role="accounts" Type="Self.accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account_viplist">
+              <PropertyRef Name="ACCOUNT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="account_viplist_ibfk_2">
+          <End Role="players" Type="Self.players" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="account_viplist" Type="Self.account_viplist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="players">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account_viplist">
+              <PropertyRef Name="PLAYER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="player_deaths_ibfk_1">
+          <End Role="players" Type="Self.players" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="player_deaths" Type="Self.player_deaths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="players">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="player_deaths">
+              <PropertyRef Name="PLAYER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="players_ibfk_1">
+          <End Role="accounts" Type="Self.accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="players" Type="Self.players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="players">
+              <PropertyRef Name="ACCOUNT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ZeusStoreContainer">
+          <EntitySet Name="accounts" EntityType="Self.accounts" Schema="zeus" store:Type="Tables" />
+          <EntitySet Name="player_deaths" EntityType="Self.player_deaths" Schema="zeus" store:Type="Tables" />
+          <EntitySet Name="players" EntityType="Self.players" Schema="zeus" store:Type="Tables" />
+          <EntitySet Name="account_viplist" EntityType="Self.account_viplist" store:Type="Tables" store:Schema="zeus">
+            <DefiningQuery>SELECT
+`account_viplist`.`ACCOUNT_ID`, 
+`account_viplist`.`WORLD_ID`, 
+`account_viplist`.`PLAYER_ID`
+FROM `account_viplist` AS `account_viplist`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="account_viplist_ibfk_1" Association="Self.account_viplist_ibfk_1">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="account_viplist" EntitySet="account_viplist" />
+          </AssociationSet>
+          <AssociationSet Name="account_viplist_ibfk_2" Association="Self.account_viplist_ibfk_2">
+            <End Role="players" EntitySet="players" />
+            <End Role="account_viplist" EntitySet="account_viplist" />
+          </AssociationSet>
+          <AssociationSet Name="player_deaths_ibfk_1" Association="Self.player_deaths_ibfk_1">
+            <End Role="players" EntitySet="players" />
+            <End Role="player_deaths" EntitySet="player_deaths" />
+          </AssociationSet>
+          <AssociationSet Name="players_ibfk_1" Association="Self.players_ibfk_1">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="players" EntitySet="players" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Zeus" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PREMDAYS" Type="Int32" Nullable="false" />
+          <Property Name="LASTDAY" Type="Int64" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KEY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BLOKED" Type="Boolean" Nullable="false" />
+          <Property Name="WARNINGS" Type="Int32" Nullable="false" />
+          <Property Name="GROUPID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="account_viplist" Relationship="Zeus.account_viplist_ibfk_1" FromRole="accounts" ToRole="account_viplist" />
+          <NavigationProperty Name="players" Relationship="Zeus.players_ibfk_1" FromRole="accounts" ToRole="players" />
+        </EntityType>
+        <EntityContainer Name="ZeusDataSource" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accounts" EntityType="Self.accounts" />
+          <EntitySet Name="player_deaths" EntityType="Zeus.player_deaths" />
+          <EntitySet Name="players" EntityType="Zeus.players" />
+          <EntitySet Name="account_viplist" EntityType="Zeus.account_viplist" />
+          <AssociationSet Name="account_viplist_ibfk_1" Association="Zeus.account_viplist_ibfk_1">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="account_viplist" EntitySet="account_viplist" />
+          </AssociationSet>
+          <AssociationSet Name="players_ibfk_1" Association="Zeus.players_ibfk_1">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="players" EntitySet="players" />
+          </AssociationSet>
+          <AssociationSet Name="player_deaths_ibfk_1" Association="Zeus.player_deaths_ibfk_1">
+            <End Role="players" EntitySet="players" />
+            <End Role="player_deaths" EntitySet="player_deaths" />
+          </AssociationSet>
+          <AssociationSet Name="account_viplist_ibfk_2" Association="Zeus.account_viplist_ibfk_2">
+            <End Role="players" EntitySet="players" />
+            <End Role="account_viplist" EntitySet="account_viplist" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="player_deaths">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLAYER_ID" Type="Int32" Nullable="false" />
+          <Property Name="DATE" Type="Decimal" Nullable="false" />
+          <Property Name="LEVEL" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="players" Relationship="Zeus.player_deaths_ibfk_1" FromRole="player_deaths" ToRole="players" />
+        </EntityType>
+        <EntityType Name="players">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WORDL_ID" Type="Byte" Nullable="false" />
+          <Property Name="GROUP_ID" Type="Int32" Nullable="false" />
+          <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" />
+          <Property Name="LEVEL" Type="Int32" Nullable="false" />
+          <Property Name="VOCATION" Type="Int32" Nullable="false" />
+          <Property Name="HEALTH" Type="Int32" Nullable="false" />
+          <Property Name="HEALTHMAX" Type="Int32" Nullable="false" />
+          <Property Name="EXPERIENCE" Type="Int64" Nullable="false" />
+          <Property Name="LOOKBODY" Type="Int32" Nullable="false" />
+          <Property Name="LOOKFEET" Type="Int32" Nullable="false" />
+          <Property Name="LOOKHEAD" Type="Int32" Nullable="false" />
+          <Property Name="LOOKLEGS" Type="Int32" Nullable="false" />
+          <Property Name="LOOKTYPE" Type="Int32" Nullable="false" />
+          <Property Name="LOOKADDONS" Type="Int32" Nullable="false" />
+          <Property Name="MAGLEVEL" Type="Int32" Nullable="false" />
+          <Property Name="MANA" Type="Int32" Nullable="false" />
+          <Property Name="MANAMAX" Type="Int32" Nullable="false" />
+          <Property Name="MANASPENT" Type="Int32" Nullable="false" />
+          <Property Name="SOUL" Type="Int64" Nullable="false" />
+          <Property Name="TOWN_ID" Type="Int32" Nullable="false" />
+          <Property Name="POSX" Type="Int32" Nullable="false" />
+          <Property Name="POSY" Type="Int32" Nullable="false" />
+          <Property Name="POZ" Type="Int32" Nullable="false" />
+          <Property Name="CONDITIONS" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="CAP" Type="Int32" Nullable="false" />
+          <Property Name="SEX" Type="Int32" Nullable="false" />
+          <Property Name="LASTLOGIN" Type="Decimal" Nullable="false" />
+          <Property Name="LASTIP" Type="Int64" Nullable="false" />
+          <Property Name="SAVE" Type="Boolean" Nullable="false" />
+          <Property Name="SKULL" Type="Boolean" Nullable="false" />
+          <Property Name="SKULLTIME" Type="Int32" Nullable="false" />
+          <Property Name="RANK_ID" Type="Int32" Nullable="false" />
+          <Property Name="GUILDNICK" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LASTLOGOUT" Type="Decimal" Nullable="false" />
+          <Property Name="BLESSINGS" Type="SByte" Nullable="false" />
+          <Property Name="BALANCE" Type="Int64" Nullable="false" />
+          <Property Name="STAMINA" Type="Int64" Nullable="false" />
+          <Property Name="DIRECTION" Type="Int32" Nullable="false" />
+          <Property Name="LOSS_EXPERIENCE" Type="Int32" Nullable="false" />
+          <Property Name="LOSS_MANA" Type="Int32" Nullable="false" />
+          <Property Name="LOSS_SKILLS" Type="Int32" Nullable="false" />
+          <Property Name="LOSS_CONTAINERS" Type="Int32" Nullable="false" />
+          <Property Name="LOSS_ITEMS" Type="Int32" Nullable="false" />
+          <Property Name="PREMEND" Type="Int32" Nullable="false" />
+          <Property Name="ONLINE" Type="Boolean" Nullable="false" />
+          <Property Name="MARRIAGE" Type="Int64" Nullable="false" />
+          <Property Name="PROMOTION" Type="Int32" Nullable="false" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="accounts" Relationship="Zeus.players_ibfk_1" FromRole="players" ToRole="accounts" />
+          <NavigationProperty Name="player_deaths" Relationship="Zeus.player_deaths_ibfk_1" FromRole="players" ToRole="player_deaths" />
+          <NavigationProperty Name="account_viplist" Relationship="Zeus.account_viplist_ibfk_2" FromRole="players" ToRole="account_viplist" />
+        </EntityType>
+        <EntityType Name="account_viplist">
+          <Key>
+            <PropertyRef Name="ACCOUNT_ID" />
+            <PropertyRef Name="WORLD_ID" />
+            <PropertyRef Name="PLAYER_ID" />
+          </Key>
+          <Property Name="ACCOUNT_ID" Type="Int32" Nullable="false" />
+          <Property Name="WORLD_ID" Type="Byte" Nullable="false" />
+          <Property Name="PLAYER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="accounts" Relationship="Zeus.account_viplist_ibfk_1" FromRole="account_viplist" ToRole="accounts" />
+          <NavigationProperty Name="players" Relationship="Zeus.account_viplist_ibfk_2" FromRole="account_viplist" ToRole="players" />
+        </EntityType>
+        <Association Name="account_viplist_ibfk_1">
+          <End Type="Zeus.accounts" Role="accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Zeus.account_viplist" Role="account_viplist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account_viplist">
+              <PropertyRef Name="ACCOUNT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="players_ibfk_1">
+          <End Type="Zeus.accounts" Role="accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Zeus.players" Role="players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="players">
+              <PropertyRef Name="ACCOUNT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="player_deaths_ibfk_1">
+          <End Type="Zeus.players" Role="players" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Zeus.player_deaths" Role="player_deaths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="players">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="player_deaths">
+              <PropertyRef Name="PLAYER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="account_viplist_ibfk_2">
+          <End Type="Zeus.players" Role="players" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Zeus.account_viplist" Role="account_viplist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="players">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="account_viplist">
+              <PropertyRef Name="PLAYER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZeusStoreContainer" CdmEntityContainer="ZeusDataSource">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="Zeus.accounts">
+              <MappingFragment StoreEntitySet="accounts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="PREMDAYS" ColumnName="PREMDAYS" />
+                <ScalarProperty Name="LASTDAY" ColumnName="LASTDAY" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="KEY" ColumnName="KEY" />
+                <ScalarProperty Name="BLOKED" ColumnName="BLOKED" />
+                <ScalarProperty Name="WARNINGS" ColumnName="WARNINGS" />
+                <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="player_deaths">
+            <EntityTypeMapping TypeName="Zeus.player_deaths">
+              <MappingFragment StoreEntitySet="player_deaths">
+                <ScalarProperty Name="LEVEL" ColumnName="LEVEL" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="PLAYER_ID" ColumnName="PLAYER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="players">
+            <EntityTypeMapping TypeName="Zeus.players">
+              <MappingFragment StoreEntitySet="players">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="PROMOTION" ColumnName="PROMOTION" />
+                <ScalarProperty Name="MARRIAGE" ColumnName="MARRIAGE" />
+                <ScalarProperty Name="ONLINE" ColumnName="ONLINE" />
+                <ScalarProperty Name="PREMEND" ColumnName="PREMEND" />
+                <ScalarProperty Name="LOSS_ITEMS" ColumnName="LOSS_ITEMS" />
+                <ScalarProperty Name="LOSS_CONTAINERS" ColumnName="LOSS_CONTAINERS" />
+                <ScalarProperty Name="LOSS_SKILLS" ColumnName="LOSS_SKILLS" />
+                <ScalarProperty Name="LOSS_MANA" ColumnName="LOSS_MANA" />
+                <ScalarProperty Name="LOSS_EXPERIENCE" ColumnName="LOSS_EXPERIENCE" />
+                <ScalarProperty Name="DIRECTION" ColumnName="DIRECTION" />
+                <ScalarProperty Name="STAMINA" ColumnName="STAMINA" />
+                <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+                <ScalarProperty Name="BLESSINGS" ColumnName="BLESSINGS" />
+                <ScalarProperty Name="LASTLOGOUT" ColumnName="LASTLOGOUT" />
+                <ScalarProperty Name="GUILDNICK" ColumnName="GUILDNICK" />
+                <ScalarProperty Name="RANK_ID" ColumnName="RANK_ID" />
+                <ScalarProperty Name="SKULLTIME" ColumnName="SKULLTIME" />
+                <ScalarProperty Name="SKULL" ColumnName="SKULL" />
+                <ScalarProperty Name="SAVE" ColumnName="SAVE" />
+                <ScalarProperty Name="LASTIP" ColumnName="LASTIP" />
+                <ScalarProperty Name="LASTLOGIN" ColumnName="LASTLOGIN" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="CAP" ColumnName="CAP" />
+                <ScalarProperty Name="CONDITIONS" ColumnName="CONDITIONS" />
+                <ScalarProperty Name="POZ" ColumnName="POZ" />
+                <ScalarProperty Name="POSY" ColumnName="POSY" />
+                <ScalarProperty Name="POSX" ColumnName="POSX" />
+                <ScalarProperty Name="TOWN_ID" ColumnName="TOWN_ID" />
+                <ScalarProperty Name="SOUL" ColumnName="SOUL" />
+                <ScalarProperty Name="MANASPENT" ColumnName="MANASPENT" />
+                <ScalarProperty Name="MANAMAX" ColumnName="MANAMAX" />
+                <ScalarProperty Name="MANA" ColumnName="MANA" />
+                <ScalarProperty Name="MAGLEVEL" ColumnName="MAGLEVEL" />
+                <ScalarProperty Name="LOOKADDONS" ColumnName="LOOKADDONS" />
+                <ScalarProperty Name="LOOKTYPE" ColumnName="LOOKTYPE" />
+                <ScalarProperty Name="LOOKLEGS" ColumnName="LOOKLEGS" />
+                <ScalarProperty Name="LOOKHEAD" ColumnName="LOOKHEAD" />
+                <ScalarProperty Name="LOOKFEET" ColumnName="LOOKFEET" />
+                <ScalarProperty Name="LOOKBODY" ColumnName="LOOKBODY" />
+                <ScalarProperty Name="EXPERIENCE" ColumnName="EXPERIENCE" />
+                <ScalarProperty Name="HEALTHMAX" ColumnName="HEALTHMAX" />
+                <ScalarProperty Name="HEALTH" ColumnName="HEALTH" />
+                <ScalarProperty Name="VOCATION" ColumnName="VOCATION" />
+                <ScalarProperty Name="LEVEL" ColumnName="LEVEL" />
+                <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
+                <ScalarProperty Name="WORDL_ID" ColumnName="WORDL_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="account_viplist">
+            <EntityTypeMapping TypeName="Zeus.account_viplist">
+              <MappingFragment StoreEntitySet="account_viplist">
+                <ScalarProperty Name="PLAYER_ID" ColumnName="PLAYER_ID" />
+                <ScalarProperty Name="WORLD_ID" ColumnName="WORLD_ID" />
+                <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
