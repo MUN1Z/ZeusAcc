@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="ZeusDataSource-Web.config Connection String" description="ZeusDataSource Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Code.DataModel.ZeusDataSource.csdl|res://*/Code.DataModel.ZeusDataSource.ssdl|res://*/Code.DataModel.ZeusDataSource.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;user id=root;password=saosao;persistsecurityinfo=True;database=zeus&quot;" tags="SqlConnectionString">
+  <parameter name="ZeusDataSource-Web.config Connection String" description="ZeusDataSource Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Code.DataModel.ZeusDataSource.csdl|res://*/Code.DataModel.ZeusDataSource.ssdl|res://*/Code.DataModel.ZeusDataSource.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=br-cdbr-azure-south-b.cloudapp.net;user id=ba74f7296e29f1;password=6d6f199a;persistsecurityinfo=True;database=acsm_922db708b3f58df&quot;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\muniz\\Documents\\Projetos\\ZeusAcc\\ZeusACC\\ZeusWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZeusDataSource']/@connectionString" />
   </parameter>
 </parameters>
