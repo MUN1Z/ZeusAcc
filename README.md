@@ -1,6 +1,6 @@
 ﻿# ZeusACC #
 
-* [Teste do ZeusAcc(http://zeusacc.azurewebsites.net/View/CadastroDeConta.aspx)
+* [Teste do ZeusAcc](http://zeusacc.azurewebsites.net/View/CadastroDeConta.aspx)
 * [Url do repositório](https://github.com/Mun1z/ZeusAcc)
 * [Url do grupo no facebook](https://www.facebook.com/groups/ZeusAcc)
 * [Url no fórum Xtibia](#)
