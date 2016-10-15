@@ -6,7 +6,7 @@
 
 ## Descrição do Projeto ##
 
-Bem vindos ao ZeusAcc, um sistema web desenvolvimento para ágilizar a vida dos OTAdmins, além do site do servidor o sistema contem um painel administrativo onde os OTAdminins podem gerenciar todo o servidor por ele, economizando assim um bom tempo.
+Bem vindos ao ZeusAcc, um sistema web em desenvolvimento para ágilizar a vida dos OTAdmins, além do site do servidor o sistema contem um painel administrativo onde os OTAdminins podem gerenciar todo o servidor por ele, economizando assim um bom tempo.
 ## Instalação ##
 
 Baixe o projeto aqui do repositório, como o sistema é desenvolvido em Aspx você terá que configurar o servidor IIS(Todo windows vem com ele), precisa também do Visual Studio(Recomendo a versão community 2015), apartir dai é só abrir o projeto com o visual studio, ir no arquivo web.config e alterar a conection string e apontar para o seu banco de dados.
